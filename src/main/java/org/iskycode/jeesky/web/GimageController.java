@@ -25,6 +25,8 @@ public class GimageController {
 	@Autowired
 	public GimageService gimageSerivce;
 
+	public Gimage gimage = new Gimage();
+
 	@RequestMapping(value = "addGimage")
 	public String addGimage() {
 		return "/gimage/addGimage";
@@ -33,7 +35,10 @@ public class GimageController {
 	@RequestMapping(value = "/uploadGimage")
 	@ResponseBody
 	public String uploadGimage(@RequestParam(value = "gimages", required = true) MultipartFile gimages,
-			HttpServletRequest request, ModelMap model) {
+			@RequestParam(value = "gimages", required = true) String title,
+			@RequestParam(value = "gimages", required = true) String part,
+			@RequestParam(value = "gimages", required = true) String height,
+			@RequestParam(value = "gimages", required = true) String type, HttpServletRequest request, ModelMap model) {
 		String path = request.getSession().getServletContext().getRealPath("upload");
 		String fileNameOriginal = gimages.getOriginalFilename();
 		String fileName = UUID.randomUUID().toString()
@@ -47,6 +52,14 @@ public class GimageController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		gimage.setTitle(title);
+		gimage.setPart(part);
+		gimage.setHeight(height);
+		gimage.setType(type);
+		gimage.setPath(fileName);
+		gimageSerivce.save(gimage);
+
 		model.addAttribute("fileUrl", request.getContextPath() + "/upload/" + fileName);
 		return "success";
 	}

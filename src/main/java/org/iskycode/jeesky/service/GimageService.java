@@ -19,4 +19,8 @@ public class GimageService {
 	public List<Gimage> getAll() {
 		return gimageDao.getAll();
 	}
+
+	public void save(Gimage gimage) {
+		gimageDao.save(gimage);
+	}
 }

@@ -25,6 +25,9 @@
 	width: 75%;
 	display: inline-block;
 	height: 500px;
+	border-color: blue;
+	border-style: solid;
+	border-width: thin;
 }
 </style>
 </head>
@@ -87,13 +90,12 @@
 				</dd>
 			</dl>
 			<dl class="am-accordion-item am-active">
-				<dt class="am-accordion-title">站点信息管理</dt>
+				<dt class="am-accordion-title">图像信息管理</dt>
 				<dd class="am-accordion-bd am-collapse am-in">
 					<!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
 					<div class="am-accordion-content">
-						<a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
-						<br /> <a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
-						<br /> <a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
+						<a class="menua" target="main" href="/jeesky/gimage/addGimage">信息添加</a>
+						<br /> <a class="menua" target="main" href="http://www.baidu.com">信息查询</a>
 					</div>
 				</dd>
 			</dl>
