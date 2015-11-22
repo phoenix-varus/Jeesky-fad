@@ -17,8 +17,8 @@ public class UserController {
 		// User user = new User();
 		// user.setName("varus");
 		// 向页面传参
-		User user = userService.get("0");
-		mod.addAttribute(user);
+		// User user = userService.get("0");
+		mod.addAttribute("ee");
 		return "index";
 	}
 }

@@ -6,7 +6,7 @@
 <body>
 	<h2>Add Images!</h2>
 	<form action="/jeesky/gimage/uploadGimage" method="post" enctype="multipart/form-data">
-		<input type="file" name="gimage" /> <br>
+		<input type="file" name="gimages" /> <br>
 		<input type="submit">
 	</form>
 </body>

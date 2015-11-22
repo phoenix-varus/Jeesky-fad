@@ -16,11 +16,16 @@
 		<hibernate.version>4.2.0.Final</hibernate.version>
 		<fastjson.version>1.2.7</fastjson.version>
 		<mysqlconnection.version>5.0.8</mysqlconnection.version>
+		<uploadVersion>6.2.0.1</uploadVersion>
 	</properties>
 	<repositories>
 		<repository>
 			<id>spring-milestone</id>
 			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+		<repository>
+			<id>oschina</id>
+			<url>http://maven.oschina.net/content/groups/public</url>
 		</repository>
 	</repositories>
 
@@ -140,6 +145,20 @@
 			<version>${mysqlconnection.version}</version>
 		</dependency>
 		<!-- mysql end -->
+		<!-- upload begin -->
+		<dependency>
+			<groupId>com.liferay.org.apache.commons.fileupload</groupId>
+			<artifactId>com.liferay.org.apache.commons.fileupload</artifactId>
+			<version>${uploadVersion}</version>
+		</dependency>
+		<!-- upload end -->
+		<!-- io begin -->
+		<dependency>
+			<groupId>org.apache.directory.studio</groupId>
+			<artifactId>org.apache.commons.io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<!-- io end -->
 	</dependencies>
 	<build>
 		<finalName>Jeesky</finalName>
