@@ -26,8 +26,14 @@ public class CategoryController {
 	private CategoryService categoryService;
 
 	@RequestMapping(value = "/addCategory")
+	public String addCategory() {
+		return "/category/addCategory";
+	}
+
+	@RequestMapping(value = "/addCategoryAction")
 	@ResponseBody
-	public String addCategory(@RequestParam(required = true, value = "name") String name,
+	public String addCategoryAction(
+			@RequestParam(required = true, value = "name") String name,
 			@RequestParam(required = true, value = "title") String title) {
 		// 添加新的站点区域
 		Category part = new Category();
@@ -66,7 +72,14 @@ public class CategoryController {
 		return "success";
 	}
 
-	public String getAll(@RequestParam(required = false, value = "partId") String partId) {
+	/**
+	 * @todo ztree数据源
+	 * @param partId
+	 * @return
+	 */
+	@RequestMapping(value = "/categoryListString")
+	public String getListAsString(
+			@RequestParam(required = false, value = "partId") String partId) {
 		List<Category> clist = new ArrayList<Category>();
 		if (StringUtils.isEmpty(partId)) {
 
@@ -74,5 +87,22 @@ public class CategoryController {
 			clist = categoryService.getAll();
 		}
 		return JSON.toJSONString(clist);
+	}
+
+	/**
+	 * @todo 列表展示数据
+	 * @param partId
+	 * @return
+	 */
+	@RequestMapping(value = "/categoryList")
+	public List<Category> getList(
+			@RequestParam(required = false, value = "partId") String partId) {
+		List<Category> clist = new ArrayList<Category>();
+		if (StringUtils.isEmpty(partId)) {
+
+		} else {
+			clist = categoryService.getAll();
+		}
+		return clist;
 	}
 }
