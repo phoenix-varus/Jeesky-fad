@@ -24,36 +24,8 @@
 			<input id="doc-form-file" type="file" name="gimages" multiple>
 		</div>
 		<div id="file-list"></div>
-
+		<input id="imgbtn" type="submit" style="display: none;" />
 	</form>
-	<script>
-		$('#doc-form-file').change(function() {
-			submitForm();
-		});
-
-		function submitForm() {
-			var form = $("#file_form");
-			if ($("#doc-form-file").val() != null
-					|| $("#doc-form-file").val() != "") {//这里是如果user_name为空则用ajaxform提交，否则按照传统方式提交。   
-				//ajax form post   
-				var options = {
-					success : showResponse,
-					resetForm : true,
-					url : "/jeesky/gimage/uploadGimage"
-				};
-				form.ajaxForm(options);
-				return;
-			}
-			// 传统form提交   
-		}
-		function showResponse(date) {//回调函数   
-			if ("success" == date) {
-				alert("信息发送成功！");
-			} else {
-				alert("信息发送失败！");
-			}
-		}
-	</script>
 	<br />
 	<form action="" class="am-form">
 		<input class="am-form-field" type="text" placeholder="图片说明" id="title">
@@ -73,7 +45,23 @@
 				<option value="晴">晴</option>
 			</select>
 		</div>
-		<input type="hidden" id="imgId" /> <br /> <input type="submit">
+		<input id="imgId" placeholder="图片ID" /> <br /> <input type="submit">
 	</form>
+	<script>
+		function clickAction() {
+			$('#file_form').ajaxForm({
+				url : '/jeesky/gimage/uploadGimage',
+				success : function(data) {
+					$("#imgId").val(data);
+				}
+			});
+		}
+		$('#doc-form-file').change(function() {
+			$("#imgbtn").click(function() {
+				clickAction();
+			});
+			$("#imgbtn").click();
+		});
+	</script>
 </body>
 </html>

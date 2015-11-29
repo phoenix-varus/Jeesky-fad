@@ -33,8 +33,7 @@ public class CategoryController {
 
 	@RequestMapping(value = "/addCategoryAction")
 	@ResponseBody
-	public String addCategoryAction(
-			@RequestParam(required = true, value = "name") String name,
+	public String addCategoryAction(@RequestParam(required = true, value = "name") String name,
 			@RequestParam(required = true, value = "title") String title) {
 		// 添加新的站点区域
 		Category part = new Category();
@@ -43,7 +42,7 @@ public class CategoryController {
 		part.setName(name);
 		part.setTitle(title);
 		part.setPid("0");
-		part.setValue("site");
+		part.setValue(Const.SITE);
 		categoryService.add(part);
 		// 站点区域的附属
 		String[] hlist = Const.HEIGHT_LIST;
@@ -56,6 +55,7 @@ public class CategoryController {
 			height.setName(hlist[i]);
 			height.setTitle(hlist[i]);
 			height.setPid(id);
+			height.setValue(Const.HEIGHT);
 			categoryService.add(height);
 		}
 		// 天气类型信息
@@ -68,6 +68,7 @@ public class CategoryController {
 				type.setName(tlist[i]);
 				type.setTitle(tlist[i]);
 				type.setPid(hlist[i]);
+				type.setValue(Const.TYPE);
 				categoryService.add(type);
 			}
 		}
@@ -81,8 +82,7 @@ public class CategoryController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/categoryListString")
-	public String getListAsString(
-			@RequestParam(required = false, value = "partId") String partId) {
+	public String getListAsString(@RequestParam(required = false, value = "partId") String partId) {
 		List<Category> clist = new ArrayList<Category>();
 		if (StringUtils.isEmpty(partId)) {
 			clist = categoryService.getAll();
@@ -98,8 +98,7 @@ public class CategoryController {
 	 * @return
 	 */
 	@RequestMapping(value = "/listCategory")
-	public String getList(Model model,
-			@RequestParam(required = false, value = "partId") String partId) {
+	public String getList(Model model, @RequestParam(required = false, value = "partId") String partId) {
 		List<Category> clist = new ArrayList<Category>();
 		clist = categoryService.getListByPartIdAndType(partId, "site");
 		model.addAttribute("clist", clist);

@@ -34,15 +34,12 @@ public class GimageController {
 
 	@RequestMapping(value = "/uploadGimage")
 	@ResponseBody
-	public String uploadGimage(
-			@RequestParam(value = "gimages", required = true) MultipartFile gimages,
+	public String uploadGimage(@RequestParam(value = "gimages", required = true) MultipartFile gimages,
 			HttpServletRequest request, ModelMap model) {
-		String path = request.getSession().getServletContext()
-				.getRealPath("upload");
+		String path = request.getSession().getServletContext().getRealPath("upload");
 		String fileNameOriginal = gimages.getOriginalFilename();
 		String fileName = UUID.randomUUID().toString()
-				+ fileNameOriginal.substring(fileNameOriginal.indexOf("."),
-						fileNameOriginal.length());
+				+ fileNameOriginal.substring(fileNameOriginal.indexOf("."), fileNameOriginal.length());
 		File targetFile = new File(path, fileName);
 		if (!targetFile.exists()) {
 			targetFile.mkdirs();
@@ -53,9 +50,8 @@ public class GimageController {
 			e.printStackTrace();
 		}
 
-		model.addAttribute("fileUrl", request.getContextPath() + "/upload/"
-				+ fileName);
-		return "success";
+		model.addAttribute("fileUrl", request.getContextPath() + "/upload/" + fileName);
+		return fileName;
 	}
 
 	@RequestMapping(value = "/showGimageList")
