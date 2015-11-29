@@ -53,8 +53,6 @@
 						class="am-icon-caret-down"></span>
 				</a>
 					<ul class="am-dropdown-content">
-						<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-						<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
 						<li><a href="#"><span class="am-icon-power-off"></span>
 								退出</a></li>
 					</ul></li>
@@ -72,20 +70,18 @@
 				<dd class="am-accordion-bd am-collapse am-in">
 					<!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
 					<div class="am-accordion-content">
-						<a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
-						<br /> <a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
+						<a class="menua" target="main" href="http://www.baidu.com">站点站点</a>
 						<br /> <a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
 					</div>
 				</dd>
 			</dl>
 			<dl class="am-accordion-item am-active">
-				<dt class="am-accordion-title">站点信息管理</dt>
+				<dt class="am-accordion-title">用户信息管理</dt>
 				<dd class="am-accordion-bd am-collapse am-in">
 					<!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
 					<div class="am-accordion-content">
-						<a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
-						<br /> <a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
-						<br /> <a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
+						<a class="menua" target="main" href="http://www.baidu.com">用户添加</a>
+						<br /> <a class="menua" target="main" href="http://www.baidu.com">用户信息</a>
 					</div>
 				</dd>
 			</dl>
@@ -94,8 +90,8 @@
 				<dd class="am-accordion-bd am-collapse am-in">
 					<!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
 					<div class="am-accordion-content">
-						<a class="menua" target="main" href="/jeesky/gimage/addGimage">信息添加</a>
-						<br /> <a class="menua" target="main" href="http://www.baidu.com">信息查询</a>
+						<a class="menua" target="main" href="/jeesky/gimage/addGimage">图像添加</a>
+						<br /> <a class="menua" target="main" href="http://www.baidu.com">图像查询</a>
 					</div>
 				</dd>
 			</dl>

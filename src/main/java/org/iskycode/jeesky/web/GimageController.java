@@ -35,10 +35,10 @@ public class GimageController {
 	@RequestMapping(value = "/uploadGimage")
 	@ResponseBody
 	public String uploadGimage(@RequestParam(value = "gimages", required = true) MultipartFile gimages,
-			@RequestParam(value = "gimages", required = true) String title,
-			@RequestParam(value = "gimages", required = true) String part,
-			@RequestParam(value = "gimages", required = true) String height,
-			@RequestParam(value = "gimages", required = true) String type, HttpServletRequest request, ModelMap model) {
+			@RequestParam(value = "title", required = true) String title,
+			@RequestParam(value = "part", required = true) String part,
+			@RequestParam(value = "height", required = true) String height,
+			@RequestParam(value = "type", required = true) String type, HttpServletRequest request, ModelMap model) {
 		String path = request.getSession().getServletContext().getRealPath("upload");
 		String fileNameOriginal = gimages.getOriginalFilename();
 		String fileName = UUID.randomUUID().toString()
