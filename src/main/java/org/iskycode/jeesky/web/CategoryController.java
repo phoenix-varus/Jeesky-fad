@@ -9,6 +9,7 @@ import org.iskycode.jeesky.service.CategoryService;
 import org.iskycode.jeesky.util.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,6 +43,7 @@ public class CategoryController {
 		part.setName(name);
 		part.setTitle(title);
 		part.setPid("0");
+		part.setValue("site");
 		categoryService.add(part);
 		// 站点区域的附属
 		String[] hlist = Const.HEIGHT_LIST;
@@ -77,14 +79,15 @@ public class CategoryController {
 	 * @param partId
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/categoryListString")
 	public String getListAsString(
 			@RequestParam(required = false, value = "partId") String partId) {
 		List<Category> clist = new ArrayList<Category>();
 		if (StringUtils.isEmpty(partId)) {
-
-		} else {
 			clist = categoryService.getAll();
+		} else {
+
 		}
 		return JSON.toJSONString(clist);
 	}
@@ -94,15 +97,12 @@ public class CategoryController {
 	 * @param partId
 	 * @return
 	 */
-	@RequestMapping(value = "/categoryList")
-	public List<Category> getList(
+	@RequestMapping(value = "/listCategory")
+	public String getList(Model model,
 			@RequestParam(required = false, value = "partId") String partId) {
 		List<Category> clist = new ArrayList<Category>();
-		if (StringUtils.isEmpty(partId)) {
-
-		} else {
-			clist = categoryService.getAll();
-		}
-		return clist;
+		clist = categoryService.getListByPartIdAndType(partId, "site");
+		model.addAttribute("clist", clist);
+		return "/category/listCategory";
 	}
 }

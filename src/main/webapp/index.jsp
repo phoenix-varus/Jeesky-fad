@@ -70,8 +70,8 @@
 				<dd class="am-accordion-bd am-collapse am-in">
 					<!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
 					<div class="am-accordion-content">
-						<a class="menua" target="main" href="http://www.baidu.com">站点站点</a>
-						<br /> <a class="menua" target="main" href="http://www.baidu.com">站点信息</a>
+						<a class="menua" target="main" href="/jeesky/category/addCategory">站点添加</a>
+						<br /> <a class="menua" target="main" href="/jeesky/category/listCategory">站点信息</a>
 					</div>
 				</dd>
 			</dl>

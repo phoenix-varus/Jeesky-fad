@@ -27,4 +27,8 @@ public class CategoryService {
 	public List<Category> getListByPartId(String partId) {
 		return categoryDao.getListByPartId(partId);
 	}
+
+	public List<Category> getListByPartIdAndType(String partId, String typeId) {
+		return categoryDao.getListByPartIdAndType(partId, typeId);
+	}
 }

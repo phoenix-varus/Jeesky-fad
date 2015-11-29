@@ -20,12 +20,12 @@
 	</properties>
 	<repositories>
 		<repository>
-			<id>spring-milestone</id>
-			<url>https://repo.spring.io/libs-release</url>
-		</repository>
-		<repository>
 			<id>oschina</id>
 			<url>http://maven.oschina.net/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>spring-milestone</id>
+			<url>https://repo.spring.io/libs-release</url>
 		</repository>
 	</repositories>
 
@@ -159,6 +159,14 @@
 			<version>2.4</version>
 		</dependency>
 		<!-- io end -->
+		<!-- jsp begin -->
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>1.2-rev-1</version>
+		</dependency>
+		
+		<!-- jsp end -->
 	</dependencies>
 	<build>
 		<finalName>Jeesky</finalName>
