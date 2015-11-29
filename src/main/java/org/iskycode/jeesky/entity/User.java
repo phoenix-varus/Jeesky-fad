@@ -1,7 +1,6 @@
 package org.iskycode.jeesky.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.xml.bind.annotation.XmlElement;
@@ -16,7 +15,6 @@ public class User {
 	private String type;
 
 	@Id
-	@GeneratedValue
 	public String getId() {
 		return id;
 	}

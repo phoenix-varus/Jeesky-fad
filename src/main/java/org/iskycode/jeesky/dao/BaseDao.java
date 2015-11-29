@@ -51,6 +51,7 @@ public class BaseDao<T> {
 
 	public void save(T object) {
 		getSession().save(object);
+		this.flush();
 	}
 
 	@SuppressWarnings("unchecked")

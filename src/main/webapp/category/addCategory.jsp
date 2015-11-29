@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf8"
-	pageEncoding="utf8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>addCategory</title>
 </head>
 <body>

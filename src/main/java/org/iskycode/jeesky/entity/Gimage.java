@@ -1,7 +1,6 @@
 package org.iskycode.jeesky.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "cms_img")
@@ -15,7 +14,6 @@ public class Gimage {
 	private String note;
 
 	@Id
-	@GeneratedValue
 	public String getId() {
 		return id;
 	}
