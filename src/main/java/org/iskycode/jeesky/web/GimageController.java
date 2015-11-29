@@ -34,15 +34,15 @@ public class GimageController {
 
 	@RequestMapping(value = "/uploadGimage")
 	@ResponseBody
-	public String uploadGimage(@RequestParam(value = "gimages", required = true) MultipartFile gimages,
-			@RequestParam(value = "title", required = true) String title,
-			@RequestParam(value = "part", required = true) String part,
-			@RequestParam(value = "height", required = true) String height,
-			@RequestParam(value = "type", required = true) String type, HttpServletRequest request, ModelMap model) {
-		String path = request.getSession().getServletContext().getRealPath("upload");
+	public String uploadGimage(
+			@RequestParam(value = "gimages", required = true) MultipartFile gimages,
+			HttpServletRequest request, ModelMap model) {
+		String path = request.getSession().getServletContext()
+				.getRealPath("upload");
 		String fileNameOriginal = gimages.getOriginalFilename();
 		String fileName = UUID.randomUUID().toString()
-				+ fileNameOriginal.substring(fileNameOriginal.indexOf("."), fileNameOriginal.length());
+				+ fileNameOriginal.substring(fileNameOriginal.indexOf("."),
+						fileNameOriginal.length());
 		File targetFile = new File(path, fileName);
 		if (!targetFile.exists()) {
 			targetFile.mkdirs();
@@ -53,14 +53,8 @@ public class GimageController {
 			e.printStackTrace();
 		}
 
-		gimage.setTitle(title);
-		gimage.setPart(part);
-		gimage.setHeight(height);
-		gimage.setType(type);
-		gimage.setPath(fileName);
-		gimageSerivce.save(gimage);
-
-		model.addAttribute("fileUrl", request.getContextPath() + "/upload/" + fileName);
+		model.addAttribute("fileUrl", request.getContextPath() + "/upload/"
+				+ fileName);
 		return "success";
 	}
 
